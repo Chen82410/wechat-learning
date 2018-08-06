@@ -1,0 +1,55 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/index",
+    "pages/logs/logs",
+    "pages/titlebank/titlebank",
+    "pages/course/course",
+    "pages/mine/mine",
+    "pages/release/release"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#0d1624",
+    "selectedColor": "#4568fd",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "./assets/tabbar/home@3x.png",
+        "selectedIconPath": "./assets/tabbar/home-highlight@3x.png"
+      },
+      {
+        "pagePath": "pages/titlebank/titlebank",
+        "text": "题库",
+        "iconPath": "./assets/tabbar/title-bank-bottom-1@3x.png",
+        "selectedIconPath": "./assets/tabbar/title-bank-bottom-hightlight-1@3x.png"
+      },
+      {
+        "pagePath": "pages/release/release",
+        "text": "发帖",
+        "iconPath": "./assets/tabbar/title-bank-bottom@3x.png",
+        "selectedIconPath": "./assets/tabbar/title-bank-bottom-hightlight@3x.png"
+      },
+      {
+        "pagePath": "pages/course/course",
+        "text": "课程",
+        "iconPath": "./assets/tabbar/course-bottom@3x.png",
+        "selectedIconPath": "./assets/tabbar/course-bottom-highlight@3x.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "./assets/tabbar/settings@3x.png",
+        "selectedIconPath": "./assets/tabbar/settings-highlight@3x.png"
+      }
+    ]
+  }
+}

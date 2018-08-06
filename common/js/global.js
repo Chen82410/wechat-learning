@@ -1,0 +1,1 @@
+export const URL_DEFAULT = 'http://36.110.107.219:20002/soekao-web-dist/getcha'

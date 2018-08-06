@@ -1,0 +1,22 @@
+<!--pages/home.wxml-->
+<scroll-view class='home-root'>
+  <swiper-my></swiper-my>
+  <view class='content'>
+    <view class="hot-invitation">
+      <block class="box"></block>
+      <block class="text">热门发帖</block>
+    </view>
+    <view class='content-item' wx:for="{{invitationLists}}" wx:key="{{this}}">
+      <block>
+        <image style='width:50rpx;height:50rpx;border-radius:50%;' src="{{item.stu_info.avatar ? item.stu_info.avatar : defaultAvatarUrl}}"></image>
+      </block>
+      <block>
+        <text>{{item.stu_info.nick_name ? item.stu_info.nick_name : defaultNickName}}</text>
+      </block>
+      <block>
+        <image style="width: 20rpx;height:35rpx;" src="{{item.top_level ? '../../assets/common/level'+item.top_level+'@3x.png' : '../../assets/common/level1@3x.png'}}"></image>
+      </block>
+      <text>{{item.body}}</text>
+    </view>
+  </view>
+</scroll-view>
