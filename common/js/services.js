@@ -1,36 +1,32 @@
-import URL_DEFAULT from './global.js'
+import {URL_DEFAULT} from './global.js'
 
 /*
   获取首页帖子
 */ 
-export function getInvitationList(pageNo, result) {
+export function getInvitationList(pageNo) {
   const url = URL_DEFAULT
   const data = Object.assign({}, {
-    data: {
-      content: 'zone_topics_ex',
-      page_no: pageNo,
-      page_size: 10,
-      account: '17610992252'
-    }
+    content: 'zone_topics_ex',
+    page_no: pageNo,
+    page_size: 10,
+    account: '17610992252'
   })
-  let promise = new Promise(function (resolve, reject) {
+  return new Promise(function (resolve, reject) {
     wx.request({
       url: url,
       data: data,
       method: 'GET',
       success: res => {
-        result = res.data
-        resolve()
+        console.log(res)
+        if (res.statusCode === 200) {
+          resolve(res.data)
+        } else {
+          reject(res.data.info)
+        }
       },
       fail: err => {
-        wx.showToast({
-          title: res.data.msg,
-          icon: 'none',
-          duration: 1000
-        })
-        reject()
+        reject('网络错误1')
       }
     })
   })
-  return promise
 }
