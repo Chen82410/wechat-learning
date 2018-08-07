@@ -6,7 +6,8 @@
     "pages/titlebank/titlebank",
     "pages/course/course",
     "pages/mine/mine",
-    "pages/release/release"
+    "pages/release/release",
+    "pages/invitationDetail/invitationDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
