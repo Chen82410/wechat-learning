@@ -8,7 +8,7 @@ export function getInvitationList(pageNo) {
   const data = Object.assign({}, {
     content: 'zone_topics_ex',
     page_no: pageNo,
-    page_size: 10,
+    page_size: 5,
     account: '17610992252'
   })
   return new Promise(function (resolve, reject) {
