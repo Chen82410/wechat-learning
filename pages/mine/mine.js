@@ -5,14 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    avatar: '',
+    nickName: '',
+    isAvatarShow: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getUserInfoTap()
   },
 
   /**
@@ -62,5 +64,25 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  getUserInfoTap: function () {
+    let that = this
+    wx.getUserInfo({
+      success: res => {
+        // console.log(res)
+        that.setData({
+          avatar: res.userInfo.avatarUrl,
+          nickName: res.userInfo.nickName
+        })
+      },
+      fail: err => {
+        console.log(err)
+      }
+    })
+  },
+  avatarShowOrHidden: function () {
+    this.setData({
+      isAvatarShow: !this.data.isAvatarShow
+    })
   }
 })

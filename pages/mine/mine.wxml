@@ -1,2 +1,9 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
+<view>
+  <block class="avatar-block">
+    <image wx:if="{{isAvatarShow}}" class='avatar' src='{{avatar}}'></image>
+  </block>
+  <block>{{nickName}}</block>
+  <button bindtap='getUserInfoTap'>点击授权</button>
+  <button bindtap='avatarShowOrHidden'>头像鬼畜</button>
+</view>
