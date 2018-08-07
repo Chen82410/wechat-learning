@@ -1,0 +1,36 @@
+.content {
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+.content .hot-invitation {
+  margin-left: 30rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  align-items: center;
+}
+.content .hot-invitation .box {
+  padding: 16rpx 4rpx;
+  background-image: linear-gradient(-180deg, #6381FF 4%, #4568FD 97%);
+  border-radius: 16rpx;
+  margin-right: 24rpx;
+}
+.content .hot-invitation .box .text {
+  font-family: PingFangSC Medium;
+  font-size: 36rpx;
+  color: #2C3A53;
+  font-weight: bold;
+}
+.content .content-item {
+  width: 100%;
+  padding-left: 43rpx;
+  padding-right: 43rpx;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #4A4A4A;
+  margin-bottom: 16rpx;
+  border-radius: 16rpx;
+  border: 0.0625rem solid rgba(12, 27, 48, 0.06);
+  box-shadow: 0 4rpx 24rpx 0 rgba(12, 27, 48, 0.06);
+}

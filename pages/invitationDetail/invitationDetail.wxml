@@ -1,0 +1,3 @@
+<!--pages/invitationDetail/invitationDetail.wxml-->
+<text>{{createTime}}</text>
+<text>{{body}}</text>
