@@ -52,7 +52,29 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+    let that = this
+    // wx.startPullDownRefresh()
+    this.setData({
+      pageNo: 1
+    })
+    getInvitationList(this.data.pageNo)
+    .then(res => {
+      that.setData({
+        invitationLists: res
+      })
+      wx.showToast({
+        title: '刷新成功',
+        duration: 1000
+      })
+      wx.stopPullDownRefresh()
+    })
+    .catch(err => {
+      wx.showToast({
+        title: '网络错误!',
+        duration: 1500
+      })
+      wx.stopPullDownRefresh()
+    })
   },
 
   /**
@@ -72,7 +94,7 @@ Page({
   },
   _getInvitationlist: function (pageNo) {
     let that = this
-    console.log(getInvitationList(pageNo))
+    // console.log(getInvitationList(pageNo))
     getInvitationList(pageNo)
     .then(res => {
       console.log(res)
