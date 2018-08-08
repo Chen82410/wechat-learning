@@ -1,13 +1,11 @@
-/* pages/mine/mine.wxss */
-.avatar-block {
+.container .avatar-view {
+  margin: 100rpx auto;
   width: 120rpx;
   height: 120rpx;
   border-radius: 50%;
 }
-
-.avatar-block .avatar {
-  width: 120rpx;
-  height: 120rpx;
+.container .avatar-view .avatar {
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
-  object-fit: contain;
 }

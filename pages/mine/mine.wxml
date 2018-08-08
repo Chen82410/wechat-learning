@@ -1,9 +1,12 @@
 <!--pages/mine/mine.wxml-->
-<view>
+<view class="container">
   <block class="avatar-block">
     <image wx:if="{{isAvatarShow}}" class='avatar' src='{{avatar}}'></image>
   </block>
   <block>{{nickName}}</block>
   <button bindtap='getUserInfoTap'>点击授权</button>
   <button bindtap='avatarShowOrHidden'>头像鬼畜</button>
+  <view class="avatar-view" bindtap="uploadAvatar">
+    <image src="{{avatarSrc}}" class="avatar"></image>
+  </view>
 </view>

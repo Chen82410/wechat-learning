@@ -7,14 +7,26 @@ Page({
   data: {
     avatar: '',
     nickName: '',
-    isAvatarShow: true
+    isAvatarShow: true,
+    avatarSrc: '../../assets/common/male_pic@3x.png'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let that = this
     this.getUserInfoTap()
+    wx.getSavedFileList({
+      success: res => {
+        // console.log(res)
+        if (res.errMsg === "getSavedFileList:ok") {
+          that.setData({
+            avatarSrc: res.fileList[0].filePath
+          })
+        }
+      }
+    })
   },
 
   /**
@@ -83,6 +95,32 @@ Page({
   avatarShowOrHidden: function () {
     this.setData({
       isAvatarShow: !this.data.isAvatarShow
+    })
+  },
+  uploadAvatar() {
+    let that = this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      sourceType: ['album', 'camera'], 
+      success: res => {
+        wx.saveFile({
+          tempFilePath: res.tempFilePaths[0],
+          success: res => {
+            that.setData({
+              avatarSrc: res.savedFilePath
+            })
+          },
+          fail: (err) => {
+            console.log(err)
+            wx.showToast({
+              title: '设置失败!',
+              duration: 1000
+            })
+          }
+        })
+       
+      },
     })
   }
 })
