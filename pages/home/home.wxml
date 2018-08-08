@@ -18,7 +18,7 @@
       </block>
       <text>{{item.body}}</text>
       <view class="picture-view">
-        <image class="picture-item" mode="scaleToFill" wx:for="{{item.attaches}}" wx:for-item="attach" wx:for-index="index" wx:key="id" src="{{'http://36.110.107.219:20002/soekao-web-dist/getcha?content=zone_attach&key='+attach.attach_id+'&compress=1&account=17610992252&callback=_jp0'}}" bindtap='viewPic' data-pic-arr='{{item.attaches}}' data-index='{{index}}' lazy-load="true"></image>
+        <image class="picture-item" mode="scaleToFill" wx:for="{{item.attaches}}" wx:for-item="attach" wx:for-index="index" wx:key="id" src="{{'http://36.110.107.219:20002/soekao-web-dist/getcha?content=zone_attach&key='+attach.attach_id+'&compress=1&account=17610992252&callback=_jp0'}}" catchtap='viewPic' data-pic-arr='{{item.attaches}}' data-index='{{index}}' lazy-load="true"></image>
       </view>
     </view>
   </view>

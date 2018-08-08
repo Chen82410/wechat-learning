@@ -1,5 +1,8 @@
 {
   "usingComponents": {
     "swiper-my": "../../components/swiper/swiper"
-  }
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "铂瑞思教育"
 }
