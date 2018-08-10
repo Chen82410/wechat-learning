@@ -10,7 +10,8 @@ Page({
     invitationLists: [],
     defaultAvatarUrl: '../../assets/common/male_pic@3x.png',
     defaultNickName: 'xueyuan',
-    pageNo: 1
+    pageNo: 1,
+    isHideLoadMore: false
   },
 
   /**
@@ -81,16 +82,34 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    let that = this
+    this.setData({
+      isHideLoadMore: true
+    })
     this.data.pageNo++
     console.log(this.data.pageNo)
-    this._getInvitationlist(this.data.pageNo)
+    getInvitationList(this.data.pageNo)
+    .then(res => {
+      that.setData({
+        invitationLists: that.data.invitationLists.concat(res)
+      })
+      that.setData({
+        isHideLoadMore: false
+      })
+    })
+    .catch(err => {
+      wx.showToast({
+        title: '网络错误!',
+        duration: 1000
+      })
+    })
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    
   },
   _getInvitationlist: function (pageNo) {
     let that = this
@@ -115,7 +134,7 @@ Page({
     let body = dataset.body
     console.log(createTime)
     wx.navigateTo({
-      url: `../invitationDetail/invitationDetail?createTime=${createTime}&body=${body}`
+      url: `../invitationDetail/invitationDetail?createTime=${createTime}&body=${body}` 
     })
   },
   viewPic: function (event) {
