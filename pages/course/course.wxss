@@ -1,1 +1,32 @@
-/* pages/course/course.wxss */
+.course-root {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+.course-root .choose-lesson {
+  font-size: 48rpx;
+  color: #000000;
+  width: 100%;
+  margin-top: 50rpx;
+  text-align: center;
+  display: block;
+}
+.course-root .lesson-type {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.course-root .lesson-type .lesson-item {
+  width: 84%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28rpx;
+  margin-top: 32rpx;
+  background-color: #23a323;
+  border-radius: 40rpx;
+  box-sizing: border-box;
+  padding: 10rpx 20rpx;
+}

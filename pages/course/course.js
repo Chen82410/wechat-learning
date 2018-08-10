@@ -1,3 +1,4 @@
+import {getCourseType} from '../../common/js/services'
 // pages/course/course.js
 Page({
 
@@ -5,14 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    allCourses: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this._getCourseType()
   },
 
   /**
@@ -62,5 +63,28 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  _getCourseType: function () {
+    let that = this
+    getCourseType()
+    .then(res => {
+      that.setData({
+        allCourses: res
+      })
+    })
+    .catch(err => {
+      console.log(err)
+      wx.showToast({
+        title: '网络错误!',
+        duration: 1000 
+      })
+    })
+  },
+  toLive: function (event) {
+    const productId = event.currentTarget.dataset.productId
+    console.log(productId)
+    wx.navigateTo({
+      url: `../livelist/livelist?productId=${productId}`,
+    })
   }
 })
