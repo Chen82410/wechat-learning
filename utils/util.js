@@ -14,6 +14,22 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-module.exports = {
-  formatTime: formatTime
+// module.exports = {
+//   formatTime: formatTime,
+//   splitAllData: splitAllData
+// }
+
+export const splitAllData = (allData, liveData, reliveData) => {
+  const dateNow = new Date().getTime()
+  for (let item of allData) {
+    // 直播
+    if (new Date(item.lesson_time).getTime() > dateNow) {
+      liveData.push(item) 
+    } else {
+      reliveData.push(item)
+    }
+  }
+  console.log(liveData)
+  console.log(reliveData)
 }
+

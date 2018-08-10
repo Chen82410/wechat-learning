@@ -1,0 +1,4 @@
+<!--pages/learingvideo/learningvideo.wxml-->
+<view>
+  <video src="{{videoUrl}}"></video>
+</view>

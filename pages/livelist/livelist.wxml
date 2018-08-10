@@ -1,0 +1,15 @@
+<!--pages/livelist/livelist.wxml-->
+<view class='livelist-root'>
+  <view class='livelist'>
+    <view class='livelist-item' wx:for="{{allData}}" wx:key="id" wx:for-item="item">
+      <text>{{item.lesson_name}}</text>
+      <button bindtap="toVideo" data-live-id="{{item.live_id}}">{{item.lesson_mode}}</button>
+    </view>
+  </view>
+  <!-- <view class='relivelist'>
+    <view class='relivelist-item' wx:for="{{reliveData}}" wx:key="id" wx:for-index="item">
+      <text>{{item.class_name}}</text>
+      <button>重播</button>
+    </view>
+  </view> -->
+</view>
