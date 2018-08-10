@@ -57,3 +57,34 @@
     }
     // 取值: event.currentTarget.dataset.picArr  data-create-time => createTime
   ```
+- 10-渲染方式有些奇特
+  ```html
+    <view class="course-root">
+      <text class="choose-lesson">请选择课程</text>
+      <block class="lesson-type">
+        <text class="lesson-item">1234</text>
+      </block>
+    </view>
+    <!--渲染成下面这种结构了 -->
+    <page>
+      <view class="course-root">
+        <text class="choose-lesson">请选择课程</text>
+        <text class="lesson-item">1234</text>
+      </view>
+    </page>
+    <!-- 写css的时候 想让.lesson-type部分作为一个整体,给.lesson-item部分布局 -->
+    <!-- 想要达到希望的效果，可以把block变为view -->
+    ```
+- 11-文字垂直居中的问题
+  ```html
+    <!-- 下面这种会带空行 -->
+    <view wx:for="items">
+      <text>
+        {{item.text}}
+      </text>
+    </view>
+    <!-- 下面这种不带空行 -->
+    <view wx:for="items">
+      <text>{{item.text}}</text>
+    </view>
+  ```

@@ -1,13 +1,15 @@
 {
   "pages": [
+    "pages/course/course",
     "pages/home/home",
     "pages/index",
     "pages/logs/logs",
     "pages/titlebank/titlebank",
-    "pages/course/course",
     "pages/mine/mine",
     "pages/release/release",
-    "pages/invitationDetail/invitationDetail"
+    "pages/invitationDetail/invitationDetail",
+    "pages/livelist/livelist",
+    "pages/learningvideo/learningvideo"
   ],
   "window": {
     "backgroundTextStyle": "light",
