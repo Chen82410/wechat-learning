@@ -8,12 +8,13 @@
   padding-right: 30rpx;
 }
 .home-root .content .hot-invitation {
-  margin-left: 30rpx;
+  margin-top: 30rpx;
   margin-bottom: 30rpx;
   display: flex;
   align-items: center;
 }
 .home-root .content .hot-invitation .box {
+  display: block;
   padding: 16rpx 4rpx;
   background-image: linear-gradient(-180deg, #6381FF 4%, #4568FD 97%);
   border-radius: 16rpx;
@@ -36,6 +37,18 @@
   border-radius: 16rpx;
   border: 0.0625rem solid rgba(12, 27, 48, 0.06);
   box-shadow: 0 4rpx 24rpx 0 rgba(12, 27, 48, 0.06);
+}
+.home-root .content .content-item .head-item {
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  font-size: 24rpx;
+  display: flex;
+  align-items: center;
+}
+.home-root .content .content-item .head-item .avatar image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
 }
 .home-root .content .picture-view {
   width: 100%;

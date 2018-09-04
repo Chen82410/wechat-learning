@@ -3,19 +3,30 @@
   <swiper-my></swiper-my>
   <view class='content'>
     <view class="hot-invitation">
-      <block class="box"></block>
+      <view class="box"></view>
       <block class="text">热门发帖</block>
     </view>
     <view bindtap='toInvitationDetail' data-body="{{item.body}}" data-create-time="{{item.create_time}}" class='content-item' wx:for="{{invitationLists}}" wx:key="id">
-      <block>
-        <image style='width:50rpx;height:50rpx;border-radius:50%;' src="{{item.stu_info.avatar ? item.stu_info.avatar : defaultAvatarUrl}}"></image>
-      </block>
-      <block>
-        <text>{{item.stu_info.nick_name ? item.stu_info.nick_name : defaultNickName}}</text>
-      </block>
-      <block>
-        <image style="width: 20rpx;height:35rpx;" src="{{item.top_level ? '../../assets/common/level'+item.top_level+'@3x.png' : '../../assets/common/level1@3x.png'}}"></image>
-      </block>
+      <view class="head-item">
+        <view class="avatar">
+          <block>
+            <image src="{{item.stu_info.avatar ? item.stu_info.avatar : defaultAvatarUrl}}"></image>
+          </block>
+        </view>
+        <view>
+          <view>
+            <block>
+              <text>{{item.stu_info.nick_name ? item.stu_info.nick_name : defaultNickName}}</text>
+            </block>
+            <block>
+              <image style="width: 20rpx;height:35rpx;" src="{{item.top_level ? '../../assets/common/level'+item.top_level+'@3x.png' : '../../assets/common/level1@3x.png'}}"></image>
+            </block>
+          </view>
+          <view>
+            <text>{{item.create_time}}</text>
+          </view>
+        </view>
+      </view>
       <text>{{item.body}}</text>
       <view class="picture-view">
         <image class="picture-item" mode="scaleToFill" wx:for="{{item.attaches}}" wx:for-item="attach" wx:for-index="index" wx:key="id" src="{{'http://36.110.107.219:20002/soekao-web-dist/getcha?content=zone_attach&key='+attach.attach_id+'&compress=1&account=17610992252&callback=_jp0'}}" catchtap='viewPic' data-pic-arr='{{item.attaches}}' data-index='{{index}}' lazy-load="true"></image>

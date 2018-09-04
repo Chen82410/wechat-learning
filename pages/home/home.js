@@ -1,5 +1,6 @@
 // pages/home.js
 import {getInvitationList} from '../../common/js/services.js'
+import {formatDate} from '../../common/js/utils.js'
 
 Page({
 
@@ -117,9 +118,15 @@ Page({
     getInvitationList(pageNo)
     .then(res => {
       console.log(res)
+      for (let item of res) {
+        if (item.create_time.length > 10) {
+          item.create_time = formatDate(item.create_time)
+        }
+      }
       that.setData({
         invitationLists: that.data.invitationLists.concat(res)
       })
+      console.log(that.data.invitationLists)
     })
     .catch(err => {
       console.log(err)

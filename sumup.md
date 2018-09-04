@@ -88,3 +88,6 @@
       <text>{{item.text}}</text>
     </view>
   ```
+
+- 12.block标签渲染问题
+  > block标签中没有内容的时候,单纯靠padding撑不起来,想画一个色块,用view标签

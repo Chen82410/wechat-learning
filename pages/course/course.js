@@ -72,7 +72,7 @@ Page({
         allCourses: res
       })
     })
-    .catch(err => {
+    .catch(err => { 
       console.log(err)
       wx.showToast({
         title: '网络错误!',
