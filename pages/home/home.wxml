@@ -6,30 +6,53 @@
       <view class="box"></view>
       <block class="text">热门发帖</block>
     </view>
-    <view bindtap='toInvitationDetail' data-body="{{item.body}}" data-create-time="{{item.create_time}}" class='content-item' wx:for="{{invitationLists}}" wx:key="id">
+    <view bindtap='toInvitationDetail' data-content-id="{{item.content_id}}" class='content-item' wx:for="{{invitationLists}}" wx:key="id">
       <view class="head-item">
         <view class="avatar">
           <block>
-            <image src="{{item.stu_info.avatar ? item.stu_info.avatar : defaultAvatarUrl}}"></image>
+            <image class="avatar-image" src="{{item.stu_info.avatar ? item.stu_info.avatar : defaultAvatarUrl}}"></image>
+          </block>
+          <block>
+            <image class="v-tag" src="../../assets/home/v-tag@3x.png"></image>
           </block>
         </view>
         <view>
-          <view>
-            <block>
-              <text>{{item.stu_info.nick_name ? item.stu_info.nick_name : defaultNickName}}</text>
-            </block>
-            <block>
-              <image style="width: 20rpx;height:35rpx;" src="{{item.top_level ? '../../assets/common/level'+item.top_level+'@3x.png' : '../../assets/common/level1@3x.png'}}"></image>
-            </block>
+          <view class="nick-name">
+            <text>{{item.stu_info.nick_name ? item.stu_info.nick_name : defaultNickName}}</text>
+            <image style="width: 20rpx;height:35rpx;" src="{{item.top_level ? '../../assets/common/level'+item.top_level+'@3x.png' : '../../assets/common/level1@3x.png'}}"></image>
           </view>
           <view>
             <text>{{item.create_time}}</text>
+            <text style="margin-left:8rpx;margin-right:8rpx;">来自</text>
+            <text style="color:#6584cc">{{(item.platform ? item.platform : "Android") + '客户端'}}</text>
           </view>
         </view>
       </view>
+      <view class='subject'>{{item.subject}}</view>
       <text>{{item.body}}</text>
+      <text style="color: #6584cc" wx:if="{{item.body.length == 100}}">...显示全文</text>
       <view class="picture-view">
         <image class="picture-item" mode="scaleToFill" wx:for="{{item.attaches}}" wx:for-item="attach" wx:for-index="index" wx:key="id" src="{{'http://36.110.107.219:20002/soekao-web-dist/getcha?content=zone_attach&key='+attach.attach_id+'&compress=1&account=17610992252&callback=_jp0'}}" catchtap='viewPic' data-pic-arr='{{item.attaches}}' data-index='{{index}}' lazy-load="true"></image>
+      </view>
+      <view class="bottom-msg">
+        <view>
+          <block>
+            <image src="../../assets/home/transmit@3x.png"></image>
+          </block>
+          <text>引用</text>
+        </view>
+        <view>
+          <block>
+            <image src="../../assets/home/reply@3x.png"></image>
+          </block>
+          <text>{{item.reply_cnt ? item.reply_cnt : '评论'}}</text>
+        </view>
+        <view>
+          <text>{{item.favor_cnt ? item.favor_cnt : '点赞'}}</text>
+          <block>
+            <image catchtap="reverseFavor" data-item='{{item}}' data-index='{{index}}' src="{{item.is_my_favor ? favorImgSrc[1] : favorImgSrc[0]}}"></image>
+          </block>
+        </view>
       </view>
     </view>
   </view>

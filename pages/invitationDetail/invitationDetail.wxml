@@ -1,3 +1,69 @@
-<!--pages/invitationDetail/invitationDetail.wxml-->
-<text>{{createTime}}</text>
-<text>{{body}}</text>
+<view>
+  <scroll-view>
+    <view class='whole-part'>
+      <view class='inline-part'>
+        <!-- 头像等 -->
+        <view class='avatar-part'>
+          <view class='left'>
+            <image src='{{defaultAvatarUrl}}'></image>
+            <image src='../../assets/home/v-tag@3x.png'></image>
+          </view>
+          <view class='right'>
+            <view class='top'>
+              <text>{{invitationDetail.stu_info.nick_name ? invitationDetail.stu_info.nick_name : "xueyuan"}}</text>
+              <image style="width: 20rpx;height:35rpx;" src="{{invitationDetail.top_level ? '../../assets/common/level'+invitationDetail.top_level+'@3x.png' : '../../assets/common/level1@3x.png'}}"></image>
+            </view>
+            <view class='bottom'>
+              <text>{{invitationDetail.create_time}}</text>
+              <text style="margin-left:8rpx;margin-right:8rpx;">来自</text>
+              <text style="color: #6584cc">{{(invitationDetail.platform ? invitationDetail.platform : "Android") + "客户端"}}</text>
+            </view>  
+          </view>
+        </view>
+        <!-- 主题/内容 -->
+        <view class='subject-content'>
+          <text class='subject'>{{invitationDetail.subject}}</text>
+          <view>
+            <text class="body">{{invitationDetail.body}}</text>
+          </view>
+        </view>
+        <!-- 图片 -->
+        <view class='picture'>
+          <image class="picture-item" mode="scaleToFill" wx:for="{{invitationDetail.attaches}}" wx:for-item="attach" wx:for-index="index" wx:key="id" src="{{'http://36.110.107.219:20002/soekao-web-dist/getcha?content=zone_attach&key='+attach.attach_id+'&compress=1&account=17610992252&callback=_jp0'}}" catchtap='viewPic' data-pic-arr='{{invitationDetail.attaches}}' data-index='{{index}}' lazy-load="true"></image>
+        </view>
+        <!-- 底部时间等 -->
+        <view class="bottom-msg">
+           <view>
+            <block>
+              <image src="../../assets/home/transmit@3x.png"></image>
+            </block>
+            <text>引用</text>
+          </view>
+          <view>
+            <block>
+              <image src="../../assets/home/reply@3x.png"></image>
+            </block>
+            <text>{{invitationDetail.reply_cnt ? invitationDetail.reply_cnt : '评论'}}</text>
+          </view>
+          <view>
+            <text>{{invitationDetail.favor_cnt ? invitationDetail.favor_cnt : '点赞'}}</text>
+            <block>
+              <image data-item='{{invitationDetail}}' data-index='{{index}}' src="{{invitationDetail.is_my_favor ? favorImgSrc[1] : favorImgSrc[0]}}"></image>
+            </block>
+          </view>
+        </view>
+        <!-- 回复 -->
+        <view class='replies'>
+          <view class='reply-item' wx:for="{{invitationDetail.replies}}" wx:key='key'>
+            <text>{{item.body}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- 底部回复栏 -->
+  <view class='bottom-reply-panel'>
+    <textarea fixed="true" bindinput="getContent" show-confirm-bar="false" value='{{content}}'></textarea>
+    <button type="{{btnType}}" bindtap='submitMsg'>发送</button>
+  </view>
+</view>

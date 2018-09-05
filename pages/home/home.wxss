@@ -45,18 +45,43 @@
   display: flex;
   align-items: center;
 }
-.home-root .content .content-item .head-item .avatar image {
+.home-root .content .content-item .head-item .avatar {
+  position: relative;
+  margin-right: 16rpx;
+}
+.home-root .content .content-item .head-item .avatar .avatar-image {
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
+}
+.home-root .content .content-item .head-item .avatar .v-tag {
+  width: 24rpx;
+  height: 24rpx;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.home-root .content .content-item .head-item .nick-name {
+  display: flex;
+  align-items: center;
+}
+.home-root .content .content-item .head-item .nick-name image {
+  margin-left: 8rpx;
+}
+.home-root .content .content-item .subject {
+  font-weight: bold;
+  font-size: 36rpx;
+  color: #4a4a4a;
+  margin-top: 16rpx;
+  margin-bottom: 10rpx;
 }
 .home-root .content .picture-view {
   width: 100%;
 }
 .home-root .content .picture-view .picture-item {
   flex: 0 1 auto;
-  width: 180rpx;
-  height: 180rpx;
+  width: 192rpx;
+  height: 192rpx;
   border-radius: 8rpx;
   margin-right: 8rpx;
   margin-bottom: 8rpx;
@@ -64,6 +89,30 @@
 }
 .home-root .content .picture-view .picture-item:nth-child(3n) {
   margin-right: 0;
+}
+.home-root .content .bottom-msg {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 70rpx;
+  color: #787878;
+  font-size: 24rpx;
+}
+.home-root .content .bottom-msg view {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.home-root .content .bottom-msg view:nth-child(2n) {
+  justify-content: center;
+}
+.home-root .content .bottom-msg view:last-child {
+  flex-direction: row-reverse;
+}
+.home-root .content .bottom-msg view image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 8rpx;
 }
 .home-root .weui-loading {
   margin: 0 5px;
