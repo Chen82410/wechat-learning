@@ -1,5 +1,5 @@
 // pages/home.js
-import {getInvitationList} from '../../common/js/services.js'
+import {getInvitationList, favor} from '../../common/js/services.js'
 import {formatDate} from '../../common/js/utils.js'
 
 Page({
@@ -12,7 +12,8 @@ Page({
     defaultAvatarUrl: '../../assets/common/male_pic@3x.png',
     defaultNickName: 'xueyuan',
     pageNo: 1,
-    isHideLoadMore: false
+    isHideLoadMore: false,
+    favorImgSrc: ['../../assets/home/home_like@3x.png', '../../assets/home/home_like_highlight@3x.png']
   },
 
   /**
@@ -61,6 +62,14 @@ Page({
     })
     getInvitationList(this.data.pageNo)
     .then(res => {
+      for (let item of res) {
+        if (item.create_time.length > 10) {
+          item.create_time = formatDate(item.create_time)
+        }
+        if (item.body.length > 100) {
+          item.body = item.body.slice(0,100)
+        }
+      }
       that.setData({
         invitationLists: res
       })
@@ -91,6 +100,14 @@ Page({
     console.log(this.data.pageNo)
     getInvitationList(this.data.pageNo)
     .then(res => {
+      for (let item of res) {
+        if (item.create_time.length > 10) {
+          item.create_time = formatDate(item.create_time)
+        }
+        if (item.body.length > 100) {
+          item.body = item.body.slice(0,100)
+        }
+      }
       that.setData({
         invitationLists: that.data.invitationLists.concat(res)
       })
@@ -112,6 +129,7 @@ Page({
   onShareAppMessage: function () {
     
   },
+  // 获取帖子
   _getInvitationlist: function (pageNo) {
     let that = this
     // console.log(getInvitationList(pageNo))
@@ -122,6 +140,9 @@ Page({
         if (item.create_time.length > 10) {
           item.create_time = formatDate(item.create_time)
         }
+        if (item.body.length > 100) {
+          item.body = item.body.slice(0,100)
+        }
       }
       that.setData({
         invitationLists: that.data.invitationLists.concat(res)
@@ -131,19 +152,19 @@ Page({
     .catch(err => {
       console.log(err)
       wx.showToast({
-        title: '网络错误2',
+        title: err,
       })
     })
   },
+  // 去往帖子详情页
   toInvitationDetail: function (event) {
     let dataset = event.currentTarget.dataset
-    let createTime = dataset.createTime
-    let body = dataset.body
-    console.log(createTime)
+    let contentId = dataset.contentId
     wx.navigateTo({
-      url: `../invitationDetail/invitationDetail?createTime=${createTime}&body=${body}` 
+      url: `../invitationDetail/invitationDetail?contentId=${contentId}` 
     })
   },
+  // 浏览图片
   viewPic: function (event) {
     let that = this
     console.log(event.currentTarget.dataset)
@@ -157,6 +178,39 @@ Page({
     wx.previewImage({
       current: tempArr[index],
       urls: tempArr
+    })
+  },
+  // 点赞/取消点赞
+  reverseFavor: function (event) {
+    let that = this
+    let dataset = event.currentTarget.dataset
+    let item = dataset.item
+    let index = dataset.index
+    let tempList = that.data.invitationLists
+    favor(item)
+    .then(res => {
+      console.log(res)
+      console.log(tempList)
+      if (tempList[index].is_my_favor) {//取消点赞
+        tempList[index].favor_cnt--
+        wx.showToast({
+          title: res.retmsg,
+          duration: 1000
+        })
+      } else {
+        tempList[index].favor_cnt++
+        wx.showToast({
+          title: res.retmsg,
+          duration: 1000
+        })
+      }
+      tempList[index].is_my_favor = !tempList[index].is_my_favor
+      that.setData({
+        invitationLists: tempList
+      })
+    })
+    .catch(err => {
+      console.log(err)
     })
   }
 })
