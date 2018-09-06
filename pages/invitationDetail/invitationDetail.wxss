@@ -55,13 +55,15 @@
   font-size: 36rpx;
   color: #4a4a4a;
   font-weight: bold;
+  margin-bottom: 10rpx;
 }
 .whole-part .inline-part .subject-content .body {
-  font-size: 28rpx;
+  font-size: 32rpx;
+  color: #4a4a4a;
 }
 .whole-part .inline-part .picture {
   width: 100%;
-  margin-top: 24rpx;
+  margin-top: 12rpx;
 }
 .whole-part .inline-part .picture .picture-item {
   flex: 0 1 auto;
@@ -102,6 +104,7 @@
 .whole-part .inline-part .replies {
   width: 100%;
   margin-top: 32rpx;
+  margin-bottom: 100rpx;
   box-sizing: border-box;
   padding-left: 28rpx;
   padding-right: 28rpx;
@@ -114,23 +117,30 @@
 }
 .bottom-reply-panel {
   width: 100%;
+  height: 100rpx;
   box-sizing: border-box;
   padding-left: 28rpx;
   padding-right: 28rpx;
   padding-top: 4rpx;
-  padding-bottom: 4rpx;
-  height: 100rpx;
+  padding-bottom: 24rpx;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   position: fixed;
   left: 0;
   bottom: 0;
+  background-color: #fff;
 }
-.bottom-reply-panel textarea {
+.bottom-reply-panel .textarea-part {
   height: 100%;
-  width: 400rpx;
+  width: 500rpx;
   border-radius: 21rpx;
   border: 2rpx solid rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
-  padding: 4rpx 8rpx;
+  padding: 8rpx 16rpx;
+}
+.bottom-reply-panel .textarea-part textarea {
+  width: 100%;
+  height: 60rpx;
+  line-height: 60rpx;
 }

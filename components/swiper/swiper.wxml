@@ -2,7 +2,7 @@
 <swiper indicator-dots="true" autoplay="true" previous-margin="0px" next-margin="0px">
   <block wx:for="{{imgUrls}}" wx:key="this">
     <swiper-item>
-      <image class='slide-image' style="width:750rpx;height:360rpx" src="{{item}}"></image>
+      <image class='slide-image' style="width:750rpx;height:300rpx;" src="{{item}}"></image>
     </swiper-item>
   </block>
 </swiper>

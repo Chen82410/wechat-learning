@@ -55,7 +55,9 @@
         <!-- 回复 -->
         <view class='replies'>
           <view class='reply-item' wx:for="{{invitationDetail.replies}}" wx:key='key'>
-            <text>{{item.body}}</text>
+            <view>
+              <text>{{item.body}}</text>
+            </view>
           </view>
         </view>
       </view>
@@ -63,7 +65,9 @@
   </scroll-view>
   <!-- 底部回复栏 -->
   <view class='bottom-reply-panel'>
-    <textarea fixed="true" bindinput="getContent" show-confirm-bar="false" value='{{content}}'></textarea>
-    <button type="{{btnType}}" bindtap='submitMsg'>发送</button>
+    <view class="textarea-part">
+      <textarea fixed="true" bindinput="getContent" show-confirm-bar="false" value='{{content}}'></textarea>
+    </view>
+    <button type="{{btnType}}" bindtap='submitMsg'>发 送</button>
   </view>
 </view>

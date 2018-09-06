@@ -166,7 +166,6 @@ Page({
   },
   // 浏览图片
   viewPic: function (event) {
-    let that = this
     console.log(event.currentTarget.dataset)
     let dataset = event.currentTarget.dataset
     let picArr = dataset.picArr
@@ -197,7 +196,7 @@ Page({
           title: res.retmsg,
           duration: 1000
         })
-      } else {
+      } else {//点赞
         tempList[index].favor_cnt++
         wx.showToast({
           title: res.retmsg,

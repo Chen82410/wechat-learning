@@ -110,7 +110,7 @@ export function favor(item) {
 export function getInvitationDetails(key) {
   const url = URL_DEFAULT
   const data = Object.assign({}, {
-    content: 'zone_topic',
+    content: 'zone_topic_ex',
     key: key,
     account: '17610992252'
   })

@@ -75,8 +75,14 @@
   margin-top: 16rpx;
   margin-bottom: 10rpx;
 }
+.home-root .content .content-item .body-part {
+  font-size: 32rpx;
+  color: #4a4a4a;
+  margin-bottom: 12rpx;
+}
 .home-root .content .picture-view {
   width: 100%;
+  margin-top: 12rpx;
 }
 .home-root .content .picture-view .picture-item {
   flex: 0 1 auto;

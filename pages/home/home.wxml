@@ -29,8 +29,8 @@
         </view>
       </view>
       <view class='subject'>{{item.subject}}</view>
-      <text>{{item.body}}</text>
-      <text style="color: #6584cc" wx:if="{{item.body.length == 100}}">...显示全文</text>
+      <text class="body-part">{{item.body}}</text>
+      <text style="color: #6584cc; font-size:32rpx;" wx:if="{{item.body.length == 100}}">...显示全文</text>
       <view class="picture-view">
         <image class="picture-item" mode="scaleToFill" wx:for="{{item.attaches}}" wx:for-item="attach" wx:for-index="index" wx:key="id" src="{{'http://36.110.107.219:20002/soekao-web-dist/getcha?content=zone_attach&key='+attach.attach_id+'&compress=1&account=17610992252&callback=_jp0'}}" catchtap='viewPic' data-pic-arr='{{item.attaches}}' data-index='{{index}}' lazy-load="true"></image>
       </view>

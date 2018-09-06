@@ -23,6 +23,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let pages = getCurrentPages()
+    let currentPage = pages[pages.length - 1]
+    let url = currentPage.route
+    console.log(url)
+
     let that = this
     console.log(options)
     this.setData({

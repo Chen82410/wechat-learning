@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/invitationDetail/invitationDetail",
     "pages/course/course",
     "pages/index",
     "pages/logs/logs",
     "pages/titlebank/titlebank",
     "pages/mine/mine",
     "pages/release/release",
-    "pages/invitationDetail/invitationDetail",
     "pages/livelist/livelist",
     "pages/learningvideo/learningvideo"
   ],
